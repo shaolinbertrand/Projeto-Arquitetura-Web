@@ -1,0 +1,18 @@
+<ul>
+    <% usuarios.forEach(user => { %>
+      <li style="margin-bottom: 10px; border: 1px solid #ccc; padding: 10px;">
+        <strong><%= user.nome %></strong> - <%= user.cargo %>
+        
+        <div style="margin-top: 5px;">
+            <a href="/users/edit/<%= user._id %>">
+                <button>✏️ Editar</button>
+            </a>
+
+            <form action="/users/delete/<%= user._id %>" method="POST" style="display:inline;">
+                <button type="submit" style="color: red;">🗑️ Excluir</button>
+            </form>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/users/new">➕ Adicionar Novo Usuário</a>
